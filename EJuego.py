@@ -22,7 +22,11 @@ fin = int(input("Ingresa el número mayor del rango: "))
 if inicio >= fin:
     print("El primer número debe ser menor que el segundo.")
 else:
-    numero = round(random.randint(inicio, fin) / 4) * 4
+    numero = random.randint(inicio, fin)
+
+    if numero % 4 != 0:
+        while numero % 4 != 0:
+            numero -= 1
 
     for intento in range(1, 4):
         adivina = int(input("Adivina el número: "))
@@ -32,7 +36,6 @@ else:
                 print("¡Felicitaciones, adivinaste en el primer intento!")
             else:
                 print("¡Bien hecho, adivinaste!")
-            print()
             print("Fin del juego.")
             exit()
 
@@ -40,4 +43,5 @@ else:
             print("Pista: el número es mayor.")
         else:
             print("Pista: el número es menor.")
+
     print("Perdiste, el número era", numero)
