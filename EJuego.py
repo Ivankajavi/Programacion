@@ -16,35 +16,28 @@
 
 import random
 
-# Pedir al usuario un rango válido
 inicio = int(input("Ingresa el número menor del rango: "))
 fin = int(input("Ingresa el número mayor del rango: "))
 
-# Verificar que el rango sea correcto
 if inicio >= fin:
     print("El primer número debe ser menor que el segundo.")
 else:
-    # Generar número aleatorio dentro del rango
-    numero = random.randint(inicio, fin)
+    numero = round(random.randint(inicio, fin) / 4) * 4
 
-    # Dividir por 4 y redondear al múltiplo de 4 más cercano
-    numero = round(numero / 4) * 4
-
-    # El usuario tiene 3 intentos
     for intento in range(1, 4):
-        adivina = int(input(f"Intento {intento}: Adivina el número: "))
+        adivina = int(input("Adivina el número: "))
 
         if adivina == numero:
             if intento == 1:
                 print("¡Felicitaciones, adivinaste en el primer intento!")
             else:
-                print("¡Bien hecho, adivinaste el número!")
-            break
+                print("¡Bien hecho, adivinaste!")
+            print()
+            print("Fin del juego.")
+            exit()
+
+        elif adivina < numero:
+            print("Pista: el número es mayor.")
         else:
-            if intento < 3:
-                if adivina < numero:
-                    print("Pista: el número es mayor.")
-                else:
-                    print("Pista: el número es menor.")
-            else:
-                print(f"Perdiste, el número era {numero}.")
+            print("Pista: el número es menor.")
+    print("Perdiste, el número era", numero)
