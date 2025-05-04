@@ -32,20 +32,35 @@
 #Tercer intento: Si no acierta nuevamente, se le vuelve a dar una pista.
 #Resultado final: Si no acierta en los tres intentos, el programa muestra el mensaje: "Perdiste, el número era [número]."
 
-#EJERCICIO 2:
+quintil = int(input("Ingresa el quintil al que perteneces (1 al 5): "))
+condicion = input("¿Estás empleado o desempleado?: ").lower()
+edad = int(input("Ingresa tu edad: "))
 
-#Desarrolla un programa en Python que permita generar un número aleatorio dentro de un rango definido por el usuario y ajustarlo dividiéndolo por 4. Luego, el usuario deberá adivinar el número en un máximo de tres intentos.
+if quintil == 1:
+    if condicion == "desempleado":
+        subsidio = 15000
+    else:
+        subsidio = 10000
+elif quintil == 2:
+    if condicion == "desempleado":
+        subsidio = 8000
+    else:
+        subsidio = 6000
+elif quintil == 3 or quintil == 4:
+    if condicion == "desempleado":
+        subsidio = 8000
+    else:
+        subsidio = 6000
+elif quintil == 5:
+    subsidio = 1500
+else:
+    print("Quintil no válido.")
+    subsidio = 0
 
-#Condiciones del juego:
+if quintil == 1 or quintil == 2:
+    subsidio += 2000
 
-#Ingreso de datos:
-#El usuario ingresa dos números enteros que representan el rango numérico.
-#El primer número debe ser menor que el segundo.
-#Generación del número aleatorio:
-#Se elige un número aleatorio dentro del rango ingresado.
-#El número se ajusta dividiéndolo por 4 y redondeándolo al múltiplo de 4 más cercano.
-#Intentos del usuario:
-#Primer intento: Si el usuario acierta, se muestra el mensaje: "Felicitaciones, adivinaste en el primer intento."
-#Segundo intento: Si el usuario no acierta, se le indica si el número es mayor o menor.
-#Tercer intento: Si no acierta nuevamente, se le vuelve a dar una pista.
-#Resultado final: Si no acierta en los tres intentos, el programa muestra el mensaje: "Perdiste, el número era [número]."
+if edad > 65:
+    subsidio += 3000
+
+print(f"El subsidio total que te corresponde es: ${subsidio}")
