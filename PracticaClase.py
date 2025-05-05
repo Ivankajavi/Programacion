@@ -33,7 +33,7 @@
 #Resultado final: Si no acierta en los tres intentos, el programa muestra el mensaje: "Perdiste, el número era [número]."
 
 quintil = int(input("Ingresa el quintil al que perteneces (1 al 5): "))
-condicion = input("¿Estás empleado o desempleado?: ").lower()
+condicion = input("¿Estás empleado o desempleado?: ")
 edad = int(input("Ingresa tu edad: "))
 
 if quintil == 1:
