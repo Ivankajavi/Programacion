@@ -1,0 +1,34 @@
+# Valores base
+arancel = 1800000
+matricula = 90000
+
+# Datos del estudiante (puedes cambiarlos)
+promedio = 5.8
+quintil = 2
+
+# Cálculo de descuentos
+descuento_arancel = 0
+descuento_matricula = 0
+
+if promedio > 6.0:
+    if quintil in [1, 2]:
+        descuento_arancel = 0.20
+    elif quintil in [3, 4]:
+        descuento_arancel = 0.15
+elif 5.0 < promedio <= 6.0:
+    if quintil in [1, 2]:
+        descuento_arancel = 0.13
+    elif quintil in [3, 4]:
+        descuento_arancel = 0.10
+
+if quintil in [1, 2, 3]:
+    descuento_matricula = 0.10
+    if promedio >= 5.5:
+        descuento_matricula += 0.05
+
+# Cálculo final
+arancel_final = arancel * (1 - descuento_arancel)
+matricula_final = matricula * (1 - descuento_matricula)
+
+print("Arancel final: $", arancel_final)
+print("Matrícula final: $", matricula_final)
